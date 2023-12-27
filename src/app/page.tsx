@@ -82,7 +82,7 @@ export default function Page() {
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.personalWebsiteUrl ? (
-                <a href={`mailto:${RESUME_DATA.personalWebsiteUrl}`}>
+                <a href={RESUME_DATA.personalWebsiteUrl}>
                   <span className="underline">{RESUME_DATA.websiteUrl}</span>
                 </a>
               ) : null}
