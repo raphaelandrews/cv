@@ -11,9 +11,10 @@ export const RESUME_DATA = {
   about:
     "Desenvolvedor Web Fullstack",
   summary:
-    "Olá, sou Raphael, Desenvolvedor Fullstack com especialidade em Frontend. Desenvolvo soluções que aprimoram as experiências do usuário e resolvem problemas. Construo interfaces de usuário responsivas, dinâmicas e interativas. Como Desenvolvedor Fullstack, também possuo habilidades básicas em desenvolvimento de backend.",
+    "Desenvolvedor Fullstack com especialidade em Frontend. Crio soluções que aprimoram as experiências do usuário e resolvem problemas. Construo interfaces de usuário responsivas, dinâmicas e interativas. Criação de APIs REST. Sou Proativo e tenho facilidade com trabalho em equipe.",
   avatarUrl: "",
   personalWebsiteUrl: "https://ndrws.dev",
+  websiteUrl: "ndrws.dev",
   contact: {
     email: "hey@ndrws.dev",
     tel: "+5579988666446",
@@ -40,7 +41,7 @@ export const RESUME_DATA = {
       school: "Centro Universitário Senac Santo Amaro",
       degree: "Tecnólogo em Sistemas para Internet",
       start: "out 21",
-      end: "mar 24",
+      end: "out 24",
     },
     {
       school: "Gama Academy",
@@ -72,7 +73,10 @@ export const RESUME_DATA = {
     "Styled-components",
     "Prisma",
     "Express.js",
-    "Koa.js"
+    "Koa.js",
+    "C#",
+    "ASP.NET",
+    "Entity Framework"
   ],
   projects: [
     {
@@ -83,7 +87,7 @@ export const RESUME_DATA = {
         "Tailwind",
         "Planetscale",
       ],
-      description: "Site institucional com sistema de rating",
+      description: "Site institucional com sistema de rating e API própria",
       logo: FsxLogo,
       link: {
         label: "fsx.org.br",

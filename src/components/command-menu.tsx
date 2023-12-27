@@ -44,7 +44,7 @@ export const CommandMenu = ({ links }: Props) => {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Actions">
+          <CommandGroup heading="Ações">
             <CommandItem
               onSelect={() => {
                 setOpen(false);

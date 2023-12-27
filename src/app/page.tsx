@@ -1,10 +1,9 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
-import { Card, CardHeader, CardContent } from "../components/ui/card";
+import { Card, CardHeader, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 import { CommandMenu } from "../components/command-menu";
 import { Metadata } from "next";
 import { Section } from "../components/ui/section";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, MailIcon, PhoneIcon, MapPinIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { RESUME_DATA } from "../data/resume-data";
 import { ProjectCard } from "../components/project-card";
@@ -26,11 +25,23 @@ export default function Page() {
             </p>
             <div className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <p className="inline-flex gap-x-1.5 align-baseline leading-none">
-                <GlobeIcon className="h-3 w-3" />
+                <MapPinIcon className="h-3 w-3" />
                 {RESUME_DATA.location}
               </p>
             </div>
             <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+              {RESUME_DATA.personalWebsiteUrl ? (
+                <Button
+                  className="h-8 w-8"
+                  variant="outline"
+                  size="icon"
+                  asChild
+                >
+                  <a href={RESUME_DATA.personalWebsiteUrl} target="_blank">
+                    <GlobeIcon className="h-4 w-4" />
+                  </a>
+                </Button>
+              ) : null}
               {RESUME_DATA.contact.email ? (
                 <Button
                   className="h-8 w-8"
@@ -63,13 +74,18 @@ export default function Page() {
                   size="icon"
                   asChild
                 >
-                  <a href={social.url}>
+                  <a href={social.url} target="_blank">
                     <social.icon className="h-4 w-4" />
                   </a>
                 </Button>
               ))}
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
+              {RESUME_DATA.personalWebsiteUrl ? (
+                <a href={`mailto:${RESUME_DATA.personalWebsiteUrl}`}>
+                  <span className="underline">{RESUME_DATA.websiteUrl}</span>
+                </a>
+              ) : null}
               {RESUME_DATA.contact.email ? (
                 <a href={`mailto:${RESUME_DATA.contact.email}`}>
                   <span className="underline">{RESUME_DATA.contact.email}</span>
@@ -97,8 +113,8 @@ export default function Page() {
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                      <a className="hover:underline" href={work.link}>
-                        {work.company}
+                      <a className="hover:underline" href={work.link} target="_blank">
+                        {work.company} {" "} <span className="print:hidden">- {RESUME_DATA.websiteUrl}</span>
                       </a>
 
                       <span className="inline-flex gap-x-1">
@@ -153,7 +169,7 @@ export default function Page() {
           <h2 className="text-xl font-bold">Habilidades</h2>
           <div className="flex flex-wrap gap-1">
             {RESUME_DATA.skills.map((skill) => {
-              return <Badge key={skill}>{skill}</Badge>;
+              return <Badge key={skill} className="print:text-gray-800">{skill}</Badge>;
             })}
           </div>
         </Section>
